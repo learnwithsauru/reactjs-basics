@@ -1,24 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { useState } from "react";
+
+function Footer() {
+  return (
+    <div>
+      <h3>Footerd</h3>
+    </div>
+  );
+}
 
 function App() {
+  // state --> useState hooks
+  const [qty, setQty] = useState(0);
+
+  // arrow function
+  const handleIncrease = () => {
+    setQty(qty + 1);
+  };
+
+  const handleDecrease = () => {
+    setQty(qty - 1);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="App">
+        <h1>Count App</h1>
+
+        <button onClick={() => handleDecrease()}>-</button>
+        {qty}
+        <button onClick={() => handleIncrease()}>+</button>
+      </div>
+
+      <Footer />
+    </>
   );
 }
 
